@@ -1,0 +1,22 @@
+ul.paginationCustom {
+    display: inline-block;
+    padding: 0;
+    margin: 0;
+}
+
+ul.paginationCustom li {display: inline-block;}
+
+ul.paginationCustom li a {
+    color: black;
+    float: left;
+    padding: 8px 16px;
+    text-decoration: none;
+    transition: background-color .3s;
+}
+
+ul.paginationCustom li a.active {
+    background-color: #acacac;
+    color: white;
+}
+
+ul.paginationCustom li a:hover:not(.active) {background-color: #ddd;}

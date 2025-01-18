@@ -1,0 +1,92 @@
+body {
+  overflow-x: hidden;
+}
+.nav-link {
+  font-size: 14px;
+}
+.wrapper-container {
+  z-index: 1;
+}
+#particles-js {
+  background-image: url("https://source.unsplash.com/featured/?games");
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  min-height: 100vh;
+  z-index: -2;
+}
+.mybutton {
+  transition: 0.3s all;
+  font-size: 16px;
+  color: #fff;
+  border: none;
+  background-size: 300% 100%;
+
+  background-image: linear-gradient(
+    to right,
+    #f5d862,
+    #27a0c5,
+    #c03760,
+    #1faa8c
+  );
+  box-shadow: 0 4px 15px 0 rgba(229, 66, 10, 0.3);
+
+  border-radius: 50px;
+  moz-transition: all 0.4s ease-in-out;
+  -o-transition: all 0.4s ease-in-out;
+  -webkit-transition: all 0.4s ease-in-out;
+  transition: all 0.4s ease-in-out;
+}
+.mybutton:hover {
+  transform: scale(1.05);
+  background-position: 100% 0;
+  moz-transition: all 0.4s ease-in-out;
+  -o-transition: all 0.4s ease-in-out;
+  -webkit-transition: all 0.4s ease-in-out;
+  transition: all 0.4s ease-in-out;
+}
+.fa-coins {
+  transition: 0.5 all;
+}
+.mybutton:hover .fa-coins {
+  animation: mymove 0.3s;
+}
+
+@keyframes mymove {
+  from {
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+.bg-gradients {
+  background: linear-gradient(to right, rgb(130, 170, 175), rgb(193, 154, 196));
+}
+
+.card-tukar-poin {
+  aspect-ratio: 1/1;
+  height: 180px;
+}
+/* breakpoint */
+@media (max-width: 767px) {
+  .cta-button {
+    margin-top: 1rem;
+    padding: 1.5rem 0;
+  }
+}
+
+/* breakpoint */
+@media (max-width: 576px) {
+  #particles-js {
+    background-image: unset;
+    background: linear-gradient(#2bc5d6, rgb(62, 119, 204));
+  }
+  .mybutton {
+    padding: 0.5rem !important;
+  }
+  .mybutton h6 {
+    margin-bottom: -0rem !important;
+  }
+}
