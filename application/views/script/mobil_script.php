@@ -216,6 +216,7 @@
 				if (dataRespon.statusCode === 200) {
 					toastr.success(dataRespon.message || 'Data berhasil disimpan!');
 
+					$('#preview').empty();
 					$('#formTambahMobil')[0].reset();
 					$('#modalTambahMobil').modal('hide');
 					loadMobil();
@@ -430,6 +431,7 @@
 			if (dataRespon.statusCode === 200) {
 				toastr.success(dataRespon.message || 'Data berhasil diupdate!');
 
+				$('#previewEdit').empty();
 				$('#formEditMobil')[0].reset();
 				$('#modalEditMobil').modal('hide');
 				loadMobil();

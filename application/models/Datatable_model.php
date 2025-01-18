@@ -105,6 +105,15 @@ class Datatable_model extends CI_Model
 		$data = [];
 		foreach ($request as $row) {
 
+			$approvedBy = '-';
+			if ($row['approved_by']) {
+				$this->db->select('*');
+				$this->db->from('users');
+				$this->db->where('user_id', $row['approved_by']);
+				$query = $this->db->get()->row();
+				$approvedBy = $query->username . ' (' . $row['approved_at'] . ')' ?? '-';
+			}
+
 			switch ($row['jenis_bbm']) {
 				case 'pertamax':
 					$harga = $row['jumlah_liter'] * 13500;
@@ -129,8 +138,8 @@ class Datatable_model extends CI_Model
 				'nama_mobil'     		=> $row['merk'] . ' ' . $row['type'],
 				'jumlah_liter'     		=> $row['jumlah_liter'],
 				'status'     			=> $row['status'],
-				'approved_by'     		=> $row['approved_by'],
-				'harga'     			=> $harga,
+				'approved_by'     		=> $approvedBy,
+				'harga'     			=> 'Rp. ' . number_format($harga, 0, '.', '.'),
 				'jenis_bbm'     		=> $row['jenis_bbm'],
 				'created_at'     		=> $row['created_at'],
 			];
@@ -297,6 +306,14 @@ class Datatable_model extends CI_Model
 
 		$data = [];
 		foreach ($approv as $row) {
+			$approvedBy = '-';
+			if ($row['approved_by']) {
+				$this->db->select('*');
+				$this->db->from('users');
+				$this->db->where('user_id', $row['approved_by']);
+				$query = $this->db->get()->row();
+				$approvedBy = $query->username . ' (' . $row['approved_at'] . ')' ?? '-';
+			}
 
 			switch ($row['jenis_bbm']) {
 				case 'pertamax':
@@ -322,8 +339,8 @@ class Datatable_model extends CI_Model
 				'nama_mobil'     		=> $row['merk'] . ' ' . $row['type'],
 				'jumlah_liter'     		=> $row['jumlah_liter'],
 				'status'     			=> $row['status'],
-				'approved_by'     		=> $row['approved_by'],
-				'harga'     			=> $harga,
+				'approved_by'     		=> $approvedBy,
+				'harga'     			=> 'Rp. ' . number_format($harga, 0, '.', '.'),
 				'jenis_bbm'     		=> $row['jenis_bbm'],
 				'created_at'     		=> $row['created_at'],
 			];

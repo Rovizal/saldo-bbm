@@ -67,7 +67,7 @@ class Approval extends MX_Controller
 
 		$this->db->set([
 			'status'		=> 'approved',
-			'approved_by'	=> $this->session->userdata('username') ?? 'unknown',
+			'approved_by'	=> $this->session->userdata('user_id') ?? '',
 			'approved_at'	=> date('Y-m-d H:i:s'),
 		])
 			->where('request_id', $request_id)
